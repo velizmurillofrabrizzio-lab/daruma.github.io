@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KAMPO — AI Dispatcher</title>
+  <link rel="icon" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">KAMPO</a>
+      <nav class="nav" id="nav">
+        <a href="#about" data-i18n="nav.about">Sobre mí</a>
+        <a href="#work" data-i18n="nav.work">Proyectos</a>
+        <a href="#contact" data-i18n="nav.contact">Contacto</a>
+      </nav>
+      <div class="header-controls">
+        <label for="langSelect" class="visually-hidden">Idioma</label>
+        <select id="langSelect" aria-label="Idioma">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <h1 data-i18n="hero.title">KAMPO — AI Dispatcher</h1>
+        <p class="lead" data-i18n="hero.lead">Diseño e implementación de soluciones AI para orquestación y automatización de procesos.</p>
+        <p class="cta-row"><a class="btn" href="#work" data-i18n="hero.cta1">Ver proyectos</a><a class="btn ghost" href="#contact" data-i18n="hero.cta2">Contrátame</a></p>
+      </div>
+    </section>
+
+    <section class="container about" id="about">
+      <h2 data-i18n="about.title">Sobre mí</h2>
+      <p data-i18n="about.bio">Soy desarrollador/a e ingeniero/a de machine learning con experiencia en crear sistemas que integran modelos de IA, pipelines y dashboards operativos. Me concentro en soluciones prácticas, robustas y observables.</p>
+      <ul>
+        <li>Integración de modelos y despliegue</li>
+        <li>Orquestación y automatización</li>
+        <li>Observabilidad y métricas</li>
+      </ul>
+    </section>
+
+    <section class="container work" id="work">
+      <h2 data-i18n="work.title">Proyectos destacados</h2>
+      <div class="grid">
+        <article class="card">
+          <h3 data-i18n="project.kampo.title">KAMPO AI Dispatcher</h3>
+          <p data-i18n="project.kampo.desc">Plataforma para enrutar peticiones a modelos multi-modal, con política de fallback y monitorización.</p>
+          <p class="meta" data-i18n="project.kampo.stack">Stack: Python, FastAPI, Redis, Docker, Prometheus</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="project.vis.title">Visualizer</h3>
+          <p data-i18n="project.vis.desc">Dashboard de observabilidad para pipelines de inferencia en tiempo real.</p>
+          <p class="meta" data-i18n="project.vis.stack">Stack: React, Grafana, Kafka</p>
+        </article>
+        <article class="card demo">
+          <h3 data-i18n="demo.title">Demo interactiva</h3>
+          <p data-i18n="demo.desc">Prueba una petición simulada al dispatcher.</p>
+          <button id="demoBtn" class="btn">Probar Dispatcher</button>
+          <div id="demoResult" class="meta" aria-live="polite" style="margin-top:0.75rem;color:var(--accent-2)"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container contact" id="contact">
+      <h2 data-i18n="contact.title">Contacto</h2>
+      <p data-i18n="contact.desc">¿Quieres colaborar o contratarme? Escríbeme a <a id="emailLink" href="mailto:hello@example.com">hello@example.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2026 KAMPO — AI Dispatcher</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
