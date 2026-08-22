@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 520" role="img" aria-labelledby="title desc">
+  <title id="title">KAMPO — Systems that execute</title>
+  <desc id="desc">Portada corporativa de KAMPO en azul tinta, jade y crema.</desc>
+  <defs>
+    <radialGradient id="core" cx="35%" cy="28%" r="72%">
+      <stop offset="0" stop-color="#93e3d0"/>
+      <stop offset=".48" stop-color="#285a51"/>
+      <stop offset="1" stop-color="#071218"/>
+    </radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#93e3d0" stroke-opacity=".06"/>
+    </pattern>
+  </defs>
+  <rect width="1440" height="520" rx="16" fill="#071218"/>
+  <rect width="1440" height="520" rx="16" fill="url(#grid)"/>
+  <circle cx="1180" cy="260" r="198" fill="none" stroke="#93e3d0" stroke-opacity=".16"/>
+  <circle cx="1180" cy="260" r="132" fill="none" stroke="#93e3d0" stroke-opacity=".22"/>
+  <circle cx="1180" cy="260" r="67" fill="url(#core)"/>
+  <path d="M846 260H1112M1248 260H1394" fill="none" stroke="#93e3d0" stroke-opacity=".25" stroke-dasharray="4 8"/>
+  <circle cx="947" cy="260" r="4" fill="#93e3d0"/>
+  <circle cx="1360" cy="260" r="4" fill="#c6ae77"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="82" y="96" fill="#93e3d0" font-size="15" font-weight="700" letter-spacing="4">INDEPENDENT SYSTEMS STUDIO · 2026</text>
+    <text x="76" y="267" fill="#f3efe5" font-size="128" font-weight="700" letter-spacing="-7">KAMPO</text>
+    <text x="82" y="335" fill="#93e3d0" font-size="34" font-weight="500" letter-spacing="-1">Systems that execute.</text>
+    <text x="82" y="425" fill="#f3efe5" fill-opacity=".56" font-size="15" letter-spacing="2">STRATEGY  /  AGENT ENGINEERING  /  AUTOMATION  /  RELIABILITY</text>
+    <text x="1088" y="493" fill="#f3efe5" fill-opacity=".45" font-size="11" letter-spacing="2">QUITO / REMOTE</text>
+  </g>
+</svg>
