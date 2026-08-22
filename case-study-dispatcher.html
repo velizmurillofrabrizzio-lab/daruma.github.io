@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso de estudio conceptual del KAMPO AI Dispatcher: problema, arquitectura, riesgos, evidencia y próximos pasos.">
+  <meta name="theme-color" content="#08161a">
+  <title>AI Dispatcher — KAMPO Case Study</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="case-header">
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true"></span><span>KAMPO</span></a>
+      <nav aria-label="Navegación del caso"><a href="index.html#work">Trabajo</a><a href="#architecture">Arquitectura</a><a class="nav-cta" href="index.html#contact">Contacto ↘</a></nav>
+    </header>
+  </div>
+  <main>
+    <section class="case-hero">
+      <p class="kicker">Case 01 · Internal R&amp;D · Concept architecture</p>
+      <h1>AI <span>Dispatcher</span></h1>
+      <p class="case-lead">Diseñar una capa de decisión que reciba solicitudes heterogéneas, determine una ruta permitida y conserve suficiente evidencia para revisar lo ocurrido.</p>
+      <dl class="case-facts">
+        <div><dt>Responsabilidad</dt><dd>Strategy · System architecture</dd></div>
+        <div><dt>Prácticas</dt><dd>Agents · Automation · Reliability</dd></div>
+        <div><dt>Estado</dt><dd>Concept defined · Build pending</dd></div>
+        <div><dt>Principio</dt><dd>Human control by design</dd></div>
+      </dl>
+    </section>
+
+    <section class="case-section">
+      <div class="case-two-col">
+        <div><p class="kicker">01 · The problem</p><h2>La automatización se rompe donde empieza la excepción.</h2></div>
+        <div class="case-prose">
+          <p>Una solicitud rara vez llega con todos los datos, el formato correcto y una única respuesta posible. Un sistema útil debe decidir qué sabe, qué está permitido hacer y cuándo detenerse.</p>
+          <p>El Dispatcher se plantea como una capa entre los canales de entrada y las herramientas operativas. Su trabajo no es “hacer todo”: es seleccionar una ruta, aplicar una política y dejar un registro comprensible.</p>
+          <h3>Pregunta de diseño</h3>
+          <p>¿Cómo automatizar una ruta frecuente sin convertir un error de interpretación en una acción externa difícil de revertir?</p>
+          <h3>Restricciones</h3>
+          <ul><li>Las entradas pueden ser incompletas o contradictorias.</li><li>Algunas acciones producen efectos externos o contienen datos sensibles.</li><li>Los proveedores pueden fallar después de completar parcialmente una operación.</li><li>Un operador debe poder entender y recuperar el estado.</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section alt" id="architecture">
+      <p class="kicker">02 · System architecture</p>
+      <h2>Una cadena de decisiones explícitas.</h2>
+      <div class="architecture">
+        <div><span>01</span><strong>Receive</strong><p>Captura canal, identidad disponible, payload y momento.</p></div>
+        <div><span>02</span><strong>Interpret</strong><p>Normaliza intención, entidades y contexto; marca incertidumbre.</p></div>
+        <div><span>03</span><strong>Policy</strong><p>Evalúa permisos, riesgo, datos requeridos y aprobación.</p></div>
+        <div><span>04</span><strong>Execute</strong><p>Invoca la herramienta permitida con una clave idempotente.</p></div>
+        <div><span>05</span><strong>Record</strong><p>Conserva transición, resultado, error y siguiente responsable.</p></div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="case-two-col">
+        <div><p class="kicker">03 · Control model</p><h2>Autonomía proporcional al riesgo.</h2></div>
+        <div class="case-prose">
+          <p>La política propuesta clasifica acciones por reversibilidad, sensibilidad y costo de un error. Una clasificación alta no significa “modelo más inteligente”; significa más control humano.</p>
+          <h3>Tres rutas</h3>
+          <ul><li><strong>Auto:</strong> acción reversible, datos completos y regla determinística.</li><li><strong>Confirm:</strong> falta un dato o el usuario debe validar una consecuencia.</li><li><strong>Handoff:</strong> alto impacto, conflicto, baja confianza o fallo no recuperable.</li></ul>
+          <p>La salida del sistema incluye la decisión y su razón, no solo un texto final. Eso permite evaluar si la política produjo la ruta correcta.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section alt">
+      <p class="kicker">04 · Failure design</p>
+      <h2>Diseñar también para lo que sale mal.</h2>
+      <table class="risk-table">
+        <thead><tr><th>Fallo</th><th>Riesgo</th><th>Respuesta de diseño</th></tr></thead>
+        <tbody>
+          <tr><td>Entrada duplicada</td><td>Acción externa repetida</td><td>Clave idempotente y resultado reutilizable.</td></tr>
+          <tr><td>Contexto insuficiente</td><td>Ruta incorrecta</td><td>Estado “needs_input” y pregunta específica.</td></tr>
+          <tr><td>Proveedor no disponible</td><td>Proceso parcialmente completado</td><td>Retry acotado, registro del paso y recuperación manual.</td></tr>
+          <tr><td>Acción sensible</td><td>Impacto irreversible</td><td>Aprobación humana antes de invocar la herramienta.</td></tr>
+          <tr><td>Respuesta ambigua</td><td>Imposible auditar</td><td>Contrato estructurado con decisión, razón y estado.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="case-section">
+      <div class="case-two-col">
+        <div><p class="kicker">05 · Evidence</p><h2>Lo que existe y lo que todavía no.</h2></div>
+        <div class="case-prose">
+          <p><strong>Existe:</strong> el encuadre del problema, el mapa de responsabilidades, la política de control, el modelo de estados y una lista inicial de modos de fallo.</p>
+          <p><strong>No existe todavía:</strong> una implementación pública ejecutable, resultados de evaluación, integración con proveedores o métricas de operación. Por eso este caso se identifica como arquitectura conceptual, no como producto desplegado.</p>
+          <h3>Siguiente prueba significativa</h3>
+          <p>Construir una única ruta de extremo a extremo con fixtures repetibles: recibir una solicitud, validar datos, simular una herramienta, forzar un fallo y recuperar el estado sin duplicar la acción.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact case-cta">
+      <p class="kicker">End of case 01</p>
+      <h2>Un buen caso de estudio distingue intención de evidencia.</h2>
+      <a class="contact-link" href="index.html#work"><span>Volver al trabajo seleccionado</span><span>←</span></a>
+    </section>
+  </main>
+  <footer><a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true"></span><span>KAMPO</span></a><span>Systems with proof.</span><span>© <span id="year">2026</span></span></footer>
+  <script src="script.js"></script>
+</body>
+</html>

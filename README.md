@@ -1,61 +1,76 @@
 <p align="center">
-  <img src="assets/readme-hero.svg" width="100%" alt="KAMPO — Systems that execute">
+  <img src="assets/readme-hero.svg" width="100%" alt="KAMPO — Systems with proof">
 </p>
 
 <p align="center">
-  <a href="https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/"><strong>Website</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/presentation.html"><strong>Company portfolio</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://www.canva.com/d/0xo0ov3JvkWvNuM"><strong>Presentation</strong></a>
+  <a href="https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/"><strong>Website</strong></a> ·
+  <a href="https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/case-study-dispatcher.html"><strong>Case study</strong></a> ·
+  <a href="https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/presentation.html"><strong>Company deck</strong></a>
 </p>
 
-## Systems that execute.
+# KAMPO portfolio
 
-KAMPO es un estudio independiente de sistemas. Diseñamos agentes programados, automatizaciones, integraciones y herramientas internas que convierten operaciones fragmentadas en flujos claros, verificables y preparados para evolucionar.
+The source for KAMPO's public portfolio: a static, accessible site that presents the studio, its operating model, selected system work and an honest index of public engineering repositories.
 
-Nuestro trabajo reúne estrategia, producto, ingeniería, automatización y confiabilidad dentro de una sola dirección.
+## Positioning
 
-## Selected system
+KAMPO is a founder-led systems practice directed by **Yosimar**. We explore automation, programmed agents and integrations where decision logic, operational boundaries and system state can be inspected.
 
-### KAMPO AI Dispatcher
+The portfolio deliberately distinguishes:
 
-**Prototipo funcional en desarrollo.** Una capa de decisión que recibe solicitudes, interpreta contexto, aplica reglas, selecciona una ruta de ejecución y conserva trazabilidad.
+- concept architecture from executable software;
+- reference implementations from production systems;
+- functional responsibilities from fictitious headcount;
+- verified repository contents from future roadmap.
 
-El Dispatcher está diseñado alrededor de cuatro principios:
+## Information architecture
 
-- automatizar únicamente lo repetible;
-- solicitar aprobación ante acciones sensibles;
-- hacer visibles los estados y errores;
-- permitir recuperación y transferencia humana.
+| Route | Purpose |
+| --- | --- |
+| [`index.html`](index.html) | Positioning, selected work, repositories, process, capabilities and company structure. |
+| [`case-study-dispatcher.html`](case-study-dispatcher.html) | Deep case study covering the problem, architecture, control model, failures and evidence boundary. |
+| [`presentation.html`](presentation.html) | Full-screen view of the 17-page KAMPO company presentation. |
+| [`404.html`](404.html) | Recovery page for unknown routes. |
 
-[Explorar la arquitectura completa →](https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/presentation.html)
+## Technical profile
 
-## Practice areas
+- Static HTML, CSS and small progressive JavaScript; no build step.
+- Responsive layouts for desktop, tablet and mobile.
+- Semantic landmarks, skip link and reduced-motion support.
+- GitHub Actions deployment through the official Pages actions.
+- No API keys, analytics trackers or client data.
 
-| Strategy & Product | Agent Engineering | Automation & APIs | Reliability & Delivery |
-|:--|:--|:--|:--|
-| Problema, alcance y primera versión útil. | Memoria, herramientas, permisos y acciones controladas. | Datos, eventos, servicios e integraciones. | Pruebas, límites, documentación y recuperación. |
+## Local review
+
+```bash
+git clone https://github.com/velizmurillofrabrizzio-lab/daruma.github.io.git
+cd daruma.github.io
+python -m http.server 8000
+```
+
+Open `http://127.0.0.1:8000/`. The Canva embed requires internet access; the rest of the site remains static.
+
+## Publication
+
+The workflow at `.github/workflows/pages.yml` publishes the repository root to GitHub Pages on every push to `main`. In repository settings, Pages must use **GitHub Actions** as its source.
+
+Expected public routes:
+
+- `https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/`
+- `https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/case-study-dispatcher.html`
+- `https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/presentation.html`
+
+## Content policy
+
+This repository does not claim client outcomes, uptime, test coverage or organizational headcount without public evidence. Project maturity labels are intentional and should remain visible when content changes.
 
 ## Public systems lab
 
-| System | Focus |
-|:--|:--|
-| [DARUMA Methodology](https://github.com/velizmurillofrabrizzio-lab/daruma-methodology) | Estándares, criterios y documentación de entrega. |
-| [Automation Toolkit](https://github.com/velizmurillofrabrizzio-lab/n8n-automation-toolkit) | Patrones de orquestación y automatización. |
-| [Scraper API Engine](https://github.com/velizmurillofrabrizzio-lab/scraper-api-engine) | Extracción estructurada y servicios API. |
-| [Messaging Systems](https://github.com/velizmurillofrabrizzio-lab/whatsapp-telegram-bot-factory) | Mensajería, estados y transferencia humana. |
-
-## Company model
-
-KAMPO es liderada por **Yosimar** y opera como una estructura funcional integrada. No usamos cargos para inflar tamaño: cada práctica existe para proteger una parte concreta del resultado.
-
-`Executive Direction & Product` · `Strategy & Solutions` · `Sales Intelligence & Partnerships` · `Marketing & Brand` · `Software Engineering & IT` · `Automation & Integrations` · `Quality, Security & Reliability` · `Operations, Delivery & Client Success`
+- [KAMPO Automation Toolkit](https://github.com/velizmurillofrabrizzio-lab/n8n-automation-toolkit)
+- [DARUMA Methodology](https://github.com/velizmurillofrabrizzio-lab/daruma-methodology)
+- [KAMPO Messaging Systems](https://github.com/velizmurillofrabrizzio-lab/whatsapp-telegram-bot-factory)
+- [KAMPO Data Extraction API](https://github.com/velizmurillofrabrizzio-lab/scraper-api-engine)
 
 ---
 
-### Start with one process.
-
-Construyamos una primera versión que pueda verse, probarse y mejorar.
-
-[Abrir el portafolio corporativo →](https://velizmurillofrabrizzio-lab.github.io/daruma.github.io/)
+**KAMPO** — Systems with proof.
